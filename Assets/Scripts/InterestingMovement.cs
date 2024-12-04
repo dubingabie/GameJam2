@@ -17,7 +17,7 @@ public class InterestingMovement : MonoBehaviour
 
     void Update()
     {
-        float xOffset = Mathf.PingPong(Time.time * speed, 20f) - 10f;
+        float xOffset = Mathf.PingPong(Time.time * speed, 10f) - 10f;
         float yOffset = Mathf.Sin(Time.time * frequency) * amplitude;
 
         Vector3 newPosition = new Vector3(
