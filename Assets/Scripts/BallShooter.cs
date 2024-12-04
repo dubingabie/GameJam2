@@ -4,8 +4,8 @@ public class BallShooter : MonoBehaviour
 {
     [SerializeField] private GameObject ballPrefab;
     [SerializeField] private float minShootInterval = 1f;
-    [SerializeField] private float maxShootInterval = 3f;
-    [SerializeField] private float fallSpeed = 5f;
+    [SerializeField] private float maxShootInterval = 20f;
+    [SerializeField] private float fallSpeed = 1.5f;
     [SerializeField] private Transform shootPoint;
 
     private void Start()
