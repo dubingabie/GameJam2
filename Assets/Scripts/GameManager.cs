@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
             for (int ship = 0; ship < shipsPerRow; ship++)
             {
                 Vector3 spawnPosition = new Vector3(
-                    ship * 2f, 
+                    ship * 2.5f, 
                     1.5f + row * 3f, 
                     -2f
                 );
