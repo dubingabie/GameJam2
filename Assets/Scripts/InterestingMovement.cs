@@ -6,11 +6,13 @@ public class InterestingMovement : MonoBehaviour
     public float speed = 2f;
     public float amplitude = 1f;
     public float frequency = 1f;
+    private float _randField;
 
     void Start()
     {
         // Store the initial spawn position
         originalPosition = transform.position;
+        _randField = Random.Range(0.5f, 1.5f);
     }
 
     void Update()
@@ -20,7 +22,7 @@ public class InterestingMovement : MonoBehaviour
 
         Vector3 newPosition = new Vector3(
             originalPosition.x + xOffset,
-            originalPosition.y + yOffset,
+            originalPosition.y + yOffset * _randField,
             originalPosition.z
         );
 
