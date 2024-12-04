@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class GolfBallManager : MonoBehaviour
 {
     private Rigidbody2D golfBallRigidbody;
     // Start is called before the first frame update\
@@ -20,6 +20,15 @@ public class NewBehaviourScript : MonoBehaviour
         if (golfBallRigidbody.velocity.magnitude > maxSpeed)
         {
             golfBallRigidbody.velocity = golfBallRigidbody.velocity.normalized * maxSpeed;
+        }
+        // Get the viewport position of the ball
+        Vector3 viewportPoint = Camera.main.WorldToViewportPoint(transform.position);
+        
+        // Destroy if ball goes off screen
+        if (viewportPoint.x < 0 || viewportPoint.x > 1 ||
+            viewportPoint.y < 0 || viewportPoint.y > 1)
+        {
+            Destroy(gameObject);
         }
     }
 }
