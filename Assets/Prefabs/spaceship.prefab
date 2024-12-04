@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6004917354259622382}
   - component: {fileID: 432807304044390859}
   - component: {fileID: 5831630553052297405}
+  - component: {fileID: 1293023799854871433}
   m_Layer: 0
   m_Name: spaceship
   m_TagString: Untagged
@@ -98,10 +99,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc2a91d331b84c248b0ff7a45892ce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zPosition: -2
   speed: 2
   amplitude: 1
   frequency: 1
+--- !u!114 &1293023799854871433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6750517428678570522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58de7f59a0ee8450985502edf185ffb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballPrefab: {fileID: 2660661530637336364, guid: 52fe266496ee8405682510cfced652bf, type: 3}
+  minShootInterval: 1
+  maxShootInterval: 20
+  fallSpeed: 1.5
+  shootPoint: {fileID: 0}
 --- !u!1001 &3178883678339992581
 PrefabInstance:
   m_ObjectHideFlags: 0
