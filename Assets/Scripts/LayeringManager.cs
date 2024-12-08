@@ -6,6 +6,9 @@ public class LayeringManager : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
     [SerializeField] private GameObject grass; // Changed to GameObject
+    // add same functionality but for walls
+    
+    [SerializeField][Range(0f, 10f)] private float grassOutlineHeight = 0f;
     //private bool isOverGrass = false;
     void Start()
     {
@@ -23,7 +26,7 @@ public class LayeringManager : MonoBehaviour
         // if (grass != null)
         // {
             // If ball is above grass, render it in front
-            if (transform.position.y > (grass.transform.position.y+grass.transform.localScale.y/2))
+            if (transform.position.y > (grass.transform.position.y+grass.transform.localScale.y/2)+grassOutlineHeight)
             {
                 //isOverGrass = true;
                 spriteRenderer.sortingLayerName = "Background";
