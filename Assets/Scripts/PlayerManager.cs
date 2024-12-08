@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -57,5 +58,13 @@ public class PlayerManager : MonoBehaviour
         // Move the character
         Vector2 movement = new Vector2(moveX * movementSpeed, playerRigidbody.velocity.y);
         playerRigidbody.velocity = movement;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            Debug.Log("player hit by bullet");
+        }
     }
 }
