@@ -22,7 +22,7 @@ public class WallCollisionManager : MonoBehaviour
         if (other.gameObject.CompareTag("Bullet"))
         {
             Debug.Log("Bullet hit the wall");
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
             // maybe add multiple hits to wall before it gets destroyed
             Destroy(gameObject);
             

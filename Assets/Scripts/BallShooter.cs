@@ -37,7 +37,7 @@ public class BallShooter : MonoBehaviour
             ballTransform.position += Vector3.down * (fallSpeed * Time.deltaTime);
             yield return null;
         }
-
+        
         Destroy(ball);
     }
 }
