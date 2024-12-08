@@ -8,13 +8,15 @@ public class GolfShootingController : MonoBehaviour
     [SerializeField] private GameObject golfBall;  // Reference to your golf ball prefab
     [SerializeField][Range(1f,30f)] private float maxPower = 20f;
     [SerializeField][Range(1f,100f)] private float powerMultiplier = 100f;
-    
+   
     private float currentPower = 0f;
     private bool isCharging = false;
     private Vector2 shootDirection;
     
     void Update()
     {
+        //if (powerBar == null) return;  // Safety check
+
         // Get mouse position for aiming
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 playerPosition = transform.position;
@@ -31,6 +33,7 @@ public class GolfShootingController : MonoBehaviour
         {
             currentPower += Time.deltaTime * powerMultiplier;
             currentPower = Mathf.Min(currentPower, maxPower);
+
         }
         
         // Release to shoot
