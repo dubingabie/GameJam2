@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PlayerManager : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -11,9 +11,16 @@ public class PlayerManager : MonoBehaviour
     [SerializeField][Range(1f, 20f)] private float movementSpeed = 5f;
     // [SerializeField][Range(1f, 20f)] private float maxSpeed = 10f;
     //private bool isSwinging = false;
+    
+    [Header("Player Health")]
+    [SerializeField] private float playerMaxHealth = 3;
+    //[SerializeField] private Image[] healthImages; - option for several hearts , more fitting in my opinion
+    [SerializeField] private Image healthImage;
+    private float playerCurrentHealth;
     void Start()
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
+        playerCurrentHealth = playerMaxHealth;
     }
 
     // Update is called once per frame
@@ -65,6 +72,8 @@ public class PlayerManager : MonoBehaviour
         if (other.gameObject.CompareTag("Bullet"))
         {
             Debug.Log("player hit by bullet");
+            playerCurrentHealth--;
+            healthImage.fillAmount = playerCurrentHealth / playerMaxHealth;
         }
     }
 }
