@@ -1,17 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class GolfShootingController : MonoBehaviour
 {
     [Header("Golf Shooting Settings")]
     [SerializeField] private GameObject golfBall;  // Reference to your golf ball prefab
-    [SerializeField][Range(1f,30f)] private float maxPower = 20f;
+    [SerializeField][Range(1f,50f)] private float maxPower = 20f;
     [SerializeField][Range(1f,100f)] private float powerMultiplier = 100f;
    
     private float currentPower = 0f;
     private bool isCharging = false;
     private Vector2 shootDirection;
+    
+    [Header("Power Bar Ui")]
+    [SerializeField] private GameObject powerBarUI;
+    [SerializeField] private Image power;
+
+    void Start()
+    {
+        powerBarUI.SetActive(false);   
+        power.fillAmount = 0f;
+    }
     
     void Update()
     {
@@ -25,15 +35,17 @@ public class GolfShootingController : MonoBehaviour
         // Charging power while holding mouse button
         if (Input.GetMouseButtonDown(0))
         {
+            powerBarUI.SetActive(true);
             isCharging = true;
             currentPower = 0f;
+            power.fillAmount = 0f;
         }
         
         if (isCharging)
         {
             currentPower += Time.deltaTime * powerMultiplier;
             currentPower = Mathf.Min(currentPower, maxPower);
-
+            power.fillAmount = currentPower / maxPower;
         }
         
         // Release to shoot
@@ -41,6 +53,8 @@ public class GolfShootingController : MonoBehaviour
         {
             ShootBall();
             isCharging = false;
+            power.fillAmount = 0f;
+            powerBarUI.SetActive(false);
         }
     }
     

@@ -143,6 +143,7 @@ MonoBehaviour:
   golfBall: {fileID: 2793061678426232308, guid: 3edeb3caa2f15004c98842760865b484, type: 3}
   maxPower: 20
   powerMultiplier: 100
+  powerBar: {fileID: 0}
 --- !u!70 &988702614758196688
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
