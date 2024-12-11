@@ -6,7 +6,6 @@ public class ShootingAnimation : MonoBehaviour
     [SerializeField] Sprite[] shootingSprites; // Automatically populate from sliced sprites
     [SerializeField] float frameRate = 0.1f;   // Time between each frame
     private SpriteRenderer spriteRenderer;
-    private int currentFrame = 0;
     private bool isAnimating = false;
 
     void Start()
@@ -26,7 +25,6 @@ public class ShootingAnimation : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !isAnimating)
         {
             isAnimating = true;
-            currentFrame = 0;
             StartCoroutine(PlayAnimation());
         }
     }
