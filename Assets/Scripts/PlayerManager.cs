@@ -14,13 +14,23 @@ public class PlayerManager : MonoBehaviour
     
     [Header("Player Health")]
     [SerializeField] private float playerMaxHealth = 3;
-    //[SerializeField] private Image[] healthImages; - option for several hearts , more fitting in my opinion
+    //[SerializeField] private Image[] healthImages;// - option for several hearts , more fitting in my opinion
     [SerializeField] private Image healthImage;
     private float playerCurrentHealth;
     void Start()
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
         playerCurrentHealth = playerMaxHealth;
+        // //initialize health images with intervals from the top left corner
+        // for (int i = 0; i < healthImages.Length; i++)
+        // {
+        //     healthImages[i].rectTransform.anchoredPosition = new Vector2(20 + i * 40, -20);
+        // }
+        // // //show all health images
+        // // for (int i = 0; i < playerMaxHealth; i++)
+        // // {
+        // //     healthImages[i].enabled = true;
+        // // }
     }
     [SerializeField] private GameOverManager gameOverManager;
 
@@ -77,6 +87,7 @@ public class PlayerManager : MonoBehaviour
             other.gameObject.SetActive(false);
             playerCurrentHealth--;
             healthImage.fillAmount = playerCurrentHealth / playerMaxHealth;
+            //healthImages[(int)playerCurrentHealth].enabled = false;
             if (playerCurrentHealth <= 0)
             {
                 gameOverManager.ShowGameOver();
