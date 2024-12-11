@@ -6,7 +6,7 @@ public class GolfShootingController : MonoBehaviour
 {
     [Header("Golf Shooting Settings")]
     [SerializeField] private GameObject golfBall;  // Reference to your golf ball prefab
-    [SerializeField][Range(1f,50f)] private float maxPower = 20f;
+    [SerializeField][Range(1f,200f)] private float maxPower = 20f;
     [SerializeField][Range(1f,100f)] private float powerMultiplier = 100f;
    
     private float currentPower = 0f;

@@ -22,6 +22,8 @@ public class PlayerManager : MonoBehaviour
         playerRigidbody = GetComponent<Rigidbody2D>();
         playerCurrentHealth = playerMaxHealth;
     }
+    [SerializeField] private GameOverManager gameOverManager;
+
 
     // Update is called once per frame
     void Update()
@@ -74,6 +76,10 @@ public class PlayerManager : MonoBehaviour
             Debug.Log("player hit by bullet");
             playerCurrentHealth--;
             healthImage.fillAmount = playerCurrentHealth / playerMaxHealth;
+            if (playerCurrentHealth <= 0)
+            {
+                gameOverManager.ShowGameOver();
+            }
         }
     }
 }
