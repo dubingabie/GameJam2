@@ -74,6 +74,7 @@ public class PlayerManager : MonoBehaviour
         if (other.gameObject.CompareTag("Bullet"))
         {
             Debug.Log("player hit by bullet");
+            other.gameObject.SetActive(false);
             playerCurrentHealth--;
             healthImage.fillAmount = playerCurrentHealth / playerMaxHealth;
             if (playerCurrentHealth <= 0)

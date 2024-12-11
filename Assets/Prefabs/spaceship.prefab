@@ -168,6 +168,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84df14d8060b52a4aa3095a4f17c56a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  destructionSprites:
+  - {fileID: -1637516731, guid: d32ddcca5b9daf84ca10c701bbc1ffb2, type: 3}
+  - {fileID: -387699393, guid: d32ddcca5b9daf84ca10c701bbc1ffb2, type: 3}
+  - {fileID: -1893645087, guid: d32ddcca5b9daf84ca10c701bbc1ffb2, type: 3}
+  - {fileID: -947871609, guid: d32ddcca5b9daf84ca10c701bbc1ffb2, type: 3}
+  frameRate: 0.1
 --- !u!1001 &3178883678339992581
 PrefabInstance:
   m_ObjectHideFlags: 0
