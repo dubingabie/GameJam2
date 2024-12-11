@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class ShootingAnimation : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class ShootingAnimation : MonoBehaviour
 
     void Update()
     {
-        // Detect mouse click
+        // Detect mouse press and release
         if (Input.GetMouseButtonDown(0) && !isAnimating)
         {
             isAnimating = true;
@@ -32,10 +33,25 @@ public class ShootingAnimation : MonoBehaviour
 
     private System.Collections.IEnumerator PlayAnimation()
     {
-        while (currentFrame < shootingSprites.Length)
+        // Move to first frame
+        spriteRenderer.sprite = shootingSprites[0];
+
+        // Wait until mouse is pressed
+        yield return new WaitUntil(() => Input.GetMouseButton(0));
+
+        // Stay on second frame while mouse is held
+        if (shootingSprites.Length > 1)
         {
-            spriteRenderer.sprite = shootingSprites[currentFrame];
-            currentFrame++;
+            spriteRenderer.sprite = shootingSprites[1];
+        }
+
+        // Wait until mouse is released
+        yield return new WaitUntil(() => !Input.GetMouseButton(0));
+
+        // Continue animation from third frame onwards
+        for (int i = 2; i < shootingSprites.Length; i++)
+        {
+            spriteRenderer.sprite = shootingSprites[i];
             yield return new WaitForSeconds(frameRate);
         }
 
