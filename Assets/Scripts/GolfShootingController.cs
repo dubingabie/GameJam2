@@ -60,6 +60,9 @@ public class GolfShootingController : MonoBehaviour
     
     void ShootBall()
     {
+        // Debug.Log($"Player Position: {transform.position}");
+        // Debug.Log($"Mouse Position: {Camera.main.ScreenToWorldPoint(Input.mousePosition)}");
+        //
         // Create the golf ball
         GameObject ball = Instantiate(golfBall, transform.position, Quaternion.identity);
         Rigidbody2D rb = ball.GetComponent<Rigidbody2D>();

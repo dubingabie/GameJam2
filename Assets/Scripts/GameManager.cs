@@ -6,7 +6,6 @@ public class GameManager : MonoBehaviour
     public Transform spaceshipsParent;
     public int rowCount = 2;
     public int shipsPerRow = 5;
-
     void Start()
     {
         SpawnShipFormation();
