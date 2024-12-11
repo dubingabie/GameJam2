@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WallCollisionManager : MonoBehaviour
@@ -24,6 +25,8 @@ public class WallCollisionManager : MonoBehaviour
             Debug.Log("Bullet hit the wall");
             //Destroy(other.gameObject);
             // maybe add multiple hits to wall before it gets destroyed
+            // make the other object dissapear 
+            other.gameObject.SetActive(false);
             Destroy(gameObject);
             
         }
