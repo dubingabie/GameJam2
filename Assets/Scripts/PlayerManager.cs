@@ -17,10 +17,17 @@ public class PlayerManager : MonoBehaviour
     //[SerializeField] private Image[] healthImages;// - option for several hearts , more fitting in my opinion
     [SerializeField] private Image healthImage;
     private float playerCurrentHealth;
+    
+    [Header("Damage Animation Settings")]
+    [SerializeField] Sprite[] damageSprites;
+    [SerializeField] float frameRate = 0.1f;
+    private SpriteRenderer spriteRenderer;
+    private bool isDamaged = false;
     void Start()
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
         playerCurrentHealth = playerMaxHealth;
+        spriteRenderer = GetComponent<SpriteRenderer>();
         // //initialize health images with intervals from the top left corner
         // for (int i = 0; i < healthImages.Length; i++)
         // {
@@ -86,6 +93,11 @@ public class PlayerManager : MonoBehaviour
             Debug.Log("player hit by bullet");
             other.gameObject.SetActive(false);
             playerCurrentHealth--;
+            if (!isDamaged)
+            {
+                isDamaged = true;
+                StartCoroutine(PlayDamageAnimation());
+            }
             healthImage.fillAmount = playerCurrentHealth / playerMaxHealth;
             //healthImages[(int)playerCurrentHealth].enabled = false;
             if (playerCurrentHealth <= 0)
@@ -93,5 +105,20 @@ public class PlayerManager : MonoBehaviour
                 gameOverManager.ShowGameOver();
             }
         }
+    }
+    
+    private IEnumerator PlayDamageAnimation()
+    {
+        // // Disable collider to prevent multiple hits
+        // GetComponent<Collider2D>().enabled = false;
+        // Play through each destruction frame
+        for (int i = 0; i < damageSprites.Length; i++)
+        {
+            spriteRenderer.sprite = damageSprites[i];
+            yield return new WaitForSeconds(frameRate);
+        }
+
+        isDamaged = false;
+
     }
 }

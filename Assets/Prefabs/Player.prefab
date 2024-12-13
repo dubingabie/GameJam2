@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7270719316073751588}
   - component: {fileID: 8960678333807810967}
   - component: {fileID: 988702614758196688}
+  - component: {fileID: 8082241655487491773}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -130,6 +131,11 @@ MonoBehaviour:
   movementSpeed: 1
   playerMaxHealth: 3
   healthImage: {fileID: 0}
+  damageSprites:
+  - {fileID: 550509172, guid: 151039828d9a5f94eaf27c9b9a6ebdd7, type: 3}
+  - {fileID: -565108061, guid: 151039828d9a5f94eaf27c9b9a6ebdd7, type: 3}
+  - {fileID: 2038767748, guid: 7f7c08b3b0a6d4dafa8e73073c15cdc5, type: 3}
+  frameRate: 0.1
   gameOverManager: {fileID: 0}
 --- !u!114 &8960678333807810967
 MonoBehaviour:
@@ -183,3 +189,21 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 1.9999999}
   m_Direction: 0
+--- !u!114 &8082241655487491773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3186478318270926769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6b89c14d19f340e7a0ba8844d9db6a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootingSprites:
+  - {fileID: 2038767748, guid: 7f7c08b3b0a6d4dafa8e73073c15cdc5, type: 3}
+  - {fileID: 1638934904, guid: 7f7c08b3b0a6d4dafa8e73073c15cdc5, type: 3}
+  - {fileID: 1300348014, guid: 7f7c08b3b0a6d4dafa8e73073c15cdc5, type: 3}
+  - {fileID: 287546295, guid: a08f7b5b708f89d408e62d607303ecc3, type: 3}
+  frameRate: 0.1

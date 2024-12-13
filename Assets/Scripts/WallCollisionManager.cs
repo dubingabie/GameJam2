@@ -10,7 +10,6 @@ public class WallCollisionManager : MonoBehaviour
     [SerializeField] Sprite[] destructionSprites;
     [SerializeField] float frameRate = 0.1f;
     private SpriteRenderer spriteRenderer;
-    private bool isDestroying = false;
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -30,7 +29,6 @@ public class WallCollisionManager : MonoBehaviour
             //Destroy(other.gameObject);
             // maybe add multiple hits to wall before it gets destroyed
             // make the other object dissapear 
-            isDestroying = true;
 
             other.gameObject.SetActive(false);
             //Destroy(gameObject);
