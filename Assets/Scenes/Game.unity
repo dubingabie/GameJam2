@@ -270,8 +270,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipPrefabs:
+  - {fileID: 6750517428678570522, guid: a1dd7951346f3d84a8fbd70df13bbdf4, type: 3}
+  - {fileID: 6750517428678570522, guid: 3e0d654ce73d31f44b1c0cd56e960571, type: 3}
+  - {fileID: 6750517428678570522, guid: 53a88bc5fe408574e8d2013c0100313e, type: 3}
   - {fileID: 6750517428678570522, guid: 7710158a4cdff42edb5992d39a640452, type: 3}
-  typeCount: 01000000
+  typeCount: 08000000080000000800000008000000
   spaceshipsParent: {fileID: 0}
   gameOverManager: {fileID: 4141405}
 --- !u!4 &294382266
