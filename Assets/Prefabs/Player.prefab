@@ -77,12 +77,12 @@ SpriteRenderer:
   m_SortingLayerID: -1013460285
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d97e6d4421a254aa0b0af8c48e44e2fa, type: 3}
+  m_Sprite: {fileID: 2038767748, guid: 7f7c08b3b0a6d4dafa8e73073c15cdc5, type: 3}
   m_Color: {r: 0.7735849, g: 0.5801887, b: 0.5801887, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 0.12, y: 0.13}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -127,7 +127,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf5e949fac1616048986c72cfcdef6fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
+  movementSpeed: 1
+  playerMaxHealth: 3
+  healthImage: {fileID: 0}
+  gameOverManager: {fileID: 0}
 --- !u!114 &8960678333807810967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,7 +146,8 @@ MonoBehaviour:
   golfBall: {fileID: 2793061678426232308, guid: 3edeb3caa2f15004c98842760865b484, type: 3}
   maxPower: 20
   powerMultiplier: 100
-  powerBar: {fileID: 0}
+  powerBarUI: {fileID: 0}
+  power: {fileID: 0}
 --- !u!70 &988702614758196688
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
