@@ -1,11 +1,13 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject shipPrefab;
+    public GameObject[] shipPrefabs;
+    public int[] typeCount;
     public Transform spaceshipsParent;
-    public int rowCount = 2;
-    public int shipsPerRow = 5;
+    private int rowCount = 1;
+    // public int shipsPerRow = 5;
     [SerializeField] GameOverManager gameOverManager;  // Reference to your GameOverManager
     
     private int remainingShips;  // Track remaining ships
@@ -13,31 +15,43 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         SpawnShipFormation();
-        remainingShips = rowCount * shipsPerRow;
+        //sum members of type count into remaining ship using delta
+        for (int i = 0; i < typeCount.Length; i++)
+        {
+            remainingShips += typeCount[i];
+        }
+
     }
 
     void SpawnShipFormation()
     {
-        for (int row = 0; row < rowCount; row++)
+        for (int type = 0; type < shipPrefabs.Length; type++)
         {
-            for (int ship = 0; ship < shipsPerRow; ship++)
+            for (int row = 0; row < typeCount.Length; row++)
             {
-                Vector3 spawnPosition = new Vector3(
-                    9f+ship * 0.5f, 
-                     row * 0.25f, 
-                    -2f
-                );
-                Debug.Log(spawnPosition);
-                GameObject spawnedShip = Instantiate(shipPrefab, spawnPosition, Quaternion.identity);
-                spawnedShip.transform.SetParent(spaceshipsParent);
-                
-                // Add a reference to the GameManager in collision manager of each shipp
-                ShipCollisionManager collisionManager = spawnedShip.GetComponent<ShipCollisionManager>();
-                if (collisionManager != null)
+                if (row == type)
                 {
-                    collisionManager.gameManager = this;
+                    for (int ship = 0; ship < typeCount[type]; ship++)
+                    {
+                        Vector3 spawnPosition = new Vector3(
+                            9f + ship * 0.5f,
+                            -0.25f + row * 0.25f,
+                            -2f
+                        );
+                        Debug.Log(spawnPosition);
+                        GameObject spawnedShip = Instantiate(shipPrefabs[type],
+                            spawnPosition, Quaternion.identity);
+                        spawnedShip.transform.SetParent(spaceshipsParent);
+
+                        // Add a reference to the GameManager in collision manager of each shipp
+                        ShipCollisionManager collisionManager =
+                            spawnedShip.GetComponent<ShipCollisionManager>();
+                        if (collisionManager != null)
+                        {
+                            collisionManager.gameManager = this;
+                        }
+                    }
                 }
-                
             }
         }
     }

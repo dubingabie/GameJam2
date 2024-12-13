@@ -269,10 +269,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4b30c6d284b44f09ac7b02b6e3db87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipPrefab: {fileID: 6750517428678570522, guid: 7710158a4cdff42edb5992d39a640452, type: 3}
+  shipPrefabs:
+  - {fileID: 6750517428678570522, guid: 7710158a4cdff42edb5992d39a640452, type: 3}
+  typeCount: 01000000
   spaceshipsParent: {fileID: 0}
-  rowCount: 2
-  shipsPerRow: 5
   gameOverManager: {fileID: 4141405}
 --- !u!4 &294382266
 Transform:
@@ -1062,7 +1062,7 @@ Transform:
   m_GameObject: {fileID: 1198090281}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0051, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
