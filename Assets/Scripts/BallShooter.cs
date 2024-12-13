@@ -22,22 +22,11 @@ public class BallShooter : MonoBehaviour
             GameObject ball = Instantiate(ballPrefab, 
                 shootPoint != null ? shootPoint.position : transform.position, 
                 Quaternion.identity);
-
-            StartCoroutine(MoveBallDownRoutine(ball));
+            //invoke ball move dwon routine in its game object class
+            ball.GetComponent<BulletMovementManager>().StartMoving();
+            
         }
     }
 
-    private System.Collections.IEnumerator MoveBallDownRoutine(GameObject ball)
-    {
-        Transform ballTransform = ball.transform;
-        Vector3 screenBottomEdge = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0));
-
-        while (ballTransform.position.y > screenBottomEdge.y)
-        {
-            ballTransform.position += Vector3.down * (fallSpeed * Time.deltaTime);
-            yield return null;
-        }
-        
-        Destroy(ball);
-    }
+ 
 }

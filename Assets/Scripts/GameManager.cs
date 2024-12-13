@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     private int rowCount = 1;
     // public int shipsPerRow = 5;
     [SerializeField] GameOverManager gameOverManager;  // Reference to your GameOverManager
-    
+    [SerializeField] YouWonManager youWonManager;  // Reference to your YouWonManager
     private int remainingShips;  // Track remaining ships
 
     void Start()
@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         {
             if (gameOverManager != null)
             {
-                gameOverManager.ShowGameOver();
+                youWonManager.ShowYouWon();
             }
         }
     }
