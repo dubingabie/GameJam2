@@ -169,7 +169,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  shipHealth: 1
+  damageSprites:
+  - {fileID: -614698128, guid: 774aa91c56bb944449b9d19d01e9cd24, type: 3}
+  - {fileID: -1311235023, guid: 458787ac348ffa24c855e2d1f8064d17, type: 3}
+  - {fileID: -614698128, guid: 774aa91c56bb944449b9d19d01e9cd24, type: 3}
   destructionSprites:
+  - {fileID: -1311235023, guid: 458787ac348ffa24c855e2d1f8064d17, type: 3}
   - {fileID: -614698128, guid: 774aa91c56bb944449b9d19d01e9cd24, type: 3}
   - {fileID: 757794193, guid: 774aa91c56bb944449b9d19d01e9cd24, type: 3}
   - {fileID: 1122836533, guid: 774aa91c56bb944449b9d19d01e9cd24, type: 3}

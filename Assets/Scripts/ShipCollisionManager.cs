@@ -5,12 +5,14 @@ using UnityEngine;
 public class ShipCollisionManager : MonoBehaviour
 {   
      public GameManager gameManager;
-
+     [SerializeField] private int shipHealth = 1;
+     [SerializeField] Sprite[] damageSprites; // Your 3 damage frame sprites
      [SerializeField] Sprite[] destructionSprites; // Your 3 destruction frame sprites
      private ParticleSystemRenderer[] jetEngineRenderer;
      [SerializeField] float frameRate = 0.1f;   // Time between each frame
      private SpriteRenderer spriteRenderer;
-     private bool isDestroying = false;
+     private bool isDamaging = false;
+    private bool isDestroying = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,15 +34,27 @@ public class ShipCollisionManager : MonoBehaviour
             Debug.Log("golf ball hit the ship");
             //Destroy(other.gameObject);\
             // trigger on ship destroy method of the game manager
-            isDestroying = true;
             //gameManager.OnShipDestroyed();
             Destroy(other.gameObject);
-            
-            StartCoroutine(PlayDestructionAnimation());
+            shipHealth--;
+            StartCoroutine(PlayDamageAnimation());
+            if (shipHealth < 0 && !isDestroying)
+            {
+                isDestroying = true;
+                StartCoroutine(PlayDestructionAnimation());
+            }
             
         }
     }
-    
+    private IEnumerator PlayDamageAnimation()
+    {
+        // Play through each damage frame
+        for (int i = 0; i < damageSprites.Length; i++)
+        {
+            spriteRenderer.sprite = damageSprites[i];
+            yield return new WaitForSeconds(frameRate);
+        }
+    }
     private IEnumerator PlayDestructionAnimation()
     {
         // Disable collider to prevent multiple hits
@@ -49,15 +63,16 @@ public class ShipCollisionManager : MonoBehaviour
         {
             psr.enabled = false;
         }
+        // Play through each damage frame
         // Play through each destruction frame
         for (int i = 0; i < destructionSprites.Length; i++)
         {
             spriteRenderer.sprite = destructionSprites[i];
             yield return new WaitForSeconds(frameRate);
         }
-
         // Notify game manager and destroy ship
         gameManager.OnShipDestroyed();
         Destroy(gameObject);
+        
     }
 }
