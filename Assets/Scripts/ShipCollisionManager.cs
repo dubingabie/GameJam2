@@ -37,8 +37,11 @@ public class ShipCollisionManager : MonoBehaviour
             //gameManager.OnShipDestroyed();
             Destroy(other.gameObject);
             shipHealth--;
-            StartCoroutine(PlayDamageAnimation());
-            if (shipHealth < 0 && !isDestroying)
+            if (shipHealth > 0)
+            {
+                StartCoroutine(PlayDamageAnimation());
+            }
+            if (shipHealth <= 0 && !isDestroying)
             {
                 isDestroying = true;
                 StartCoroutine(PlayDestructionAnimation());
