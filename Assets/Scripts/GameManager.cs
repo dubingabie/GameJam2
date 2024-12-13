@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     {
         SpawnShipFormation();
         //sum members of type count into remaining ship using delta
+        remainingShips = 0;
         for (int i = 0; i < typeCount.Length; i++)
         {
             remainingShips += typeCount[i];
