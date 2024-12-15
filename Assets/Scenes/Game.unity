@@ -653,6 +653,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5291914764689407875, guid: 359024c6847a38744b773528fff2b5d7, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291914764689407875, guid: 359024c6847a38744b773528fff2b5d7, type: 3}
       propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
@@ -729,12 +733,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1512443464}
     - target: {fileID: 7270719316073751588, guid: 359024c6847a38744b773528fff2b5d7, type: 3}
+      propertyPath: movementSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270719316073751588, guid: 359024c6847a38744b773528fff2b5d7, type: 3}
+      propertyPath: animationSpeed
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270719316073751588, guid: 359024c6847a38744b773528fff2b5d7, type: 3}
       propertyPath: gameOverManager
       value: 
       objectReference: {fileID: 4141405}
     - target: {fileID: 7270719316073751588, guid: 359024c6847a38744b773528fff2b5d7, type: 3}
       propertyPath: damageSprites.Array.size
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270719316073751588, guid: 359024c6847a38744b773528fff2b5d7, type: 3}
+      propertyPath: walkingSprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270719316073751588, guid: 359024c6847a38744b773528fff2b5d7, type: 3}
+      propertyPath: shootingSprites.Array.size
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7270719316073751588, guid: 359024c6847a38744b773528fff2b5d7, type: 3}
       propertyPath: damageSprites.Array.data[0]
@@ -748,6 +768,34 @@ PrefabInstance:
       propertyPath: damageSprites.Array.data[2]
       value: 
       objectReference: {fileID: -878770726, guid: 151039828d9a5f94eaf27c9b9a6ebdd7, type: 3}
+    - target: {fileID: 7270719316073751588, guid: 359024c6847a38744b773528fff2b5d7, type: 3}
+      propertyPath: walkingSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 1938997078, guid: 151039828d9a5f94eaf27c9b9a6ebdd7, type: 3}
+    - target: {fileID: 7270719316073751588, guid: 359024c6847a38744b773528fff2b5d7, type: 3}
+      propertyPath: walkingSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: -878770726, guid: 151039828d9a5f94eaf27c9b9a6ebdd7, type: 3}
+    - target: {fileID: 7270719316073751588, guid: 359024c6847a38744b773528fff2b5d7, type: 3}
+      propertyPath: shootingSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 1475850871, guid: a08f7b5b708f89d408e62d607303ecc3, type: 3}
+    - target: {fileID: 7270719316073751588, guid: 359024c6847a38744b773528fff2b5d7, type: 3}
+      propertyPath: shootingSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 992442096, guid: a08f7b5b708f89d408e62d607303ecc3, type: 3}
+    - target: {fileID: 7270719316073751588, guid: 359024c6847a38744b773528fff2b5d7, type: 3}
+      propertyPath: shootingSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: -1242494201, guid: a08f7b5b708f89d408e62d607303ecc3, type: 3}
+    - target: {fileID: 7270719316073751588, guid: 359024c6847a38744b773528fff2b5d7, type: 3}
+      propertyPath: shootingSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 287546295, guid: a08f7b5b708f89d408e62d607303ecc3, type: 3}
+    - target: {fileID: 8082241655487491773, guid: 359024c6847a38744b773528fff2b5d7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8960678333807810967, guid: 359024c6847a38744b773528fff2b5d7, type: 3}
       propertyPath: power
       value: 
@@ -920,7 +968,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 815086540}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6b89c14d19f340e7a0ba8844d9db6a2, type: 3}
   m_Name: 
@@ -1015,8 +1063,8 @@ RectTransform:
   m_GameObject: {fileID: 909827489}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2.6, y: 2.6, z: 2.6}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 69721066}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1038,14 +1086,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.38959593, g: 0.9716981, b: 0.6283614, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c67de59bd6ce6c54592c82104f241265, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fd8c3cd0a62028c4c9cbaab740896c11, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1744,8 +1792,8 @@ RectTransform:
   m_GameObject: {fileID: 1617874709}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2.6, y: 2.6, z: 2.6}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 69721066}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1774,7 +1822,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c67de59bd6ce6c54592c82104f241265, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c84de051bdce44748aaa55cf73412c39, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
