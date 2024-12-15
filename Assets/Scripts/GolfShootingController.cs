@@ -6,6 +6,7 @@ public class GolfShootingController : MonoBehaviour
 {
     [Header("Golf Shooting Settings")]
     [SerializeField] private GameObject golfBall;  // Reference to your golf ball prefab
+    [SerializeField] private float basePower = 5f;
     [SerializeField][Range(1f,200f)] private float maxPower = 20f;
     [SerializeField][Range(1f,100f)] private float powerMultiplier = 100f;
    
@@ -45,7 +46,7 @@ public class GolfShootingController : MonoBehaviour
         {
             currentPower += Time.deltaTime * powerMultiplier;
             currentPower = Mathf.Min(currentPower, maxPower);
-            power.fillAmount = currentPower / maxPower;
+            power.fillAmount = Mathf.Clamp(basePower + currentPower, 0, maxPower) / maxPower;
         }
         
         // Release to shoot

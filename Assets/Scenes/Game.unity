@@ -809,6 +809,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 909827491}
     - target: {fileID: 8960678333807810967, guid: 359024c6847a38744b773528fff2b5d7, type: 3}
+      propertyPath: basePower
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 8960678333807810967, guid: 359024c6847a38744b773528fff2b5d7, type: 3}
       propertyPath: powerBarUI
       value: 
       objectReference: {fileID: 69721065}
