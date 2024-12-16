@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
@@ -33,4 +34,13 @@ public class VideoSceneTransition : MonoBehaviour
         // Load the next scene
         SceneManager.LoadScene(nextSceneName);
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene(nextSceneName);
+        }
+    }
+    
 }
