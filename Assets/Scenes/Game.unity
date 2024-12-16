@@ -344,7 +344,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 69721066}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: PowerBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1055,7 +1055,7 @@ GameObject:
   - component: {fileID: 909827490}
   - component: {fileID: 909827492}
   - component: {fileID: 909827491}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Power
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1370,7 +1370,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1147865660}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1588,7 +1588,7 @@ GameObject:
   - component: {fileID: 1415748145}
   - component: {fileID: 1415748144}
   - component: {fileID: 1415748143}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1655,7 +1655,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -327494813
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &1415748146
@@ -1721,7 +1721,7 @@ GameObject:
   - component: {fileID: 1512443463}
   - component: {fileID: 1512443465}
   - component: {fileID: 1512443464}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1796,7 +1796,7 @@ GameObject:
   - component: {fileID: 1617874710}
   - component: {fileID: 1617874712}
   - component: {fileID: 1617874711}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: PowerBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1931,7 +1931,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1725652626}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
   m_Camera: {fileID: 0}
@@ -2219,7 +2219,7 @@ GameObject:
   - component: {fileID: 1964032470}
   - component: {fileID: 1964032472}
   - component: {fileID: 1964032471}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: HelathBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2417,7 +2417,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104978474}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
   m_Camera: {fileID: 0}
@@ -2465,8 +2465,8 @@ SceneRoots:
   - {fileID: 1415748146}
   - {fileID: 1411360958}
   - {fileID: 572653780}
-  - {fileID: 294382266}
   - {fileID: 1452967042}
+  - {fileID: 294382266}
   - {fileID: 1198090283}
   - {fileID: 2013496791}
   - {fileID: 4141406}
