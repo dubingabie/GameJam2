@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc2a91d331b84c248b0ff7a45892ce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.15
+  speed: 0.2
   amplitude: 0.1
   frequency: 0.5
 --- !u!114 &1293023799854871433
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  shipHealth: 1
+  shipHealth: 3
   damageSprites:
   - {fileID: 216472612, guid: 316860ef0ce1d3040a4909fec75cfb94, type: 3}
   - {fileID: 1973300420, guid: 77ef69de43b5ebf46a6aa62c0cdc3d73, type: 3}

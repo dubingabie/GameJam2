@@ -68,26 +68,32 @@ public class PlayerManager : MonoBehaviour
     {
         // Reset movement flag
         isMoving = false;
-        
-        // Handle Movement
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             moveX = 1f;
-            isMoving = true;
+            //isMoving = true;
         }
         else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             moveX = -1f;
-            isMoving = true;
+            //isMoving = true;
         }
         else
         {
             moveX = 0f;
         }
-
-        // Move the character
-        Vector2 movement = new Vector2(moveX * movementSpeed, playerRigidbody.velocity.y);
-        playerRigidbody.velocity = movement;
+        // don'tmove if the left mouse button is pressed
+        if (Input.GetMouseButton(0))
+        {
+            playerRigidbody.velocity = Vector2.zero;
+        }
+        else
+        {
+            // Move the character
+            Vector2 movement = new Vector2(moveX * movementSpeed,
+                playerRigidbody.velocity.y);
+            playerRigidbody.velocity = movement;
+        }
 
         // Handle character flipping
         FlipTowardsMouse(isMoving);
