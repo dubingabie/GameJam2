@@ -35,7 +35,7 @@ public class ShipCollisionManager : MonoBehaviour
             //Destroy(other.gameObject);\
             // trigger on ship destroy method of the game manager
             //gameManager.OnShipDestroyed();
-            Destroy(other.gameObject);
+            other.GetComponent<GolfBallManager>().ReleaseToPool();
             shipHealth--;
             if (shipHealth > 0)
             {

@@ -29,11 +29,14 @@ public class WallCollisionManager : MonoBehaviour
             //Destroy(other.gameObject);
             // maybe add multiple hits to wall before it gets destroyed
             // make the other object dissapear 
-
-            other.gameObject.SetActive(false);
+            // set the sprite render of  other  collider to false
+            other.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            other.gameObject.GetComponent<Collider2D>().enabled = false;
+            
+            //other.gameObject.SetActive(false);
             //Destroy(gameObject);
             StartCoroutine(PlayDestructionAnimation());
-
+            
         }
     }
     private IEnumerator PlayDestructionAnimation()
