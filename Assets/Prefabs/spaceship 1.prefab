@@ -121,6 +121,8 @@ MonoBehaviour:
   maxShootInterval: 20
   fallSpeed: 1.5
   shootPoint: {fileID: 0}
+  shootSound: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
+  shootVolume: 0.25
 --- !u!58 &1334971228387209232
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -184,7 +186,7 @@ MonoBehaviour:
   damageSound: {fileID: 8300000, guid: 7e26c9daf4c32483b9c2790e662d3f1b, type: 3}
   destructionSound: {fileID: 8300000, guid: 585e46b23c30d0a4bab3045b099c43ea, type: 3}
   damageVolume: 1
-  destructionVolume: 0.6
+  destructionVolume: 0.5
 --- !u!1001 &3178883678339992581
 PrefabInstance:
   m_ObjectHideFlags: 0

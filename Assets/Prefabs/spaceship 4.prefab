@@ -121,6 +121,8 @@ MonoBehaviour:
   maxShootInterval: 20
   fallSpeed: 1.5
   shootPoint: {fileID: 0}
+  shootSound: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
+  shootVolume: 0.25
 --- !u!58 &1334971228387209232
 CircleCollider2D:
   m_ObjectHideFlags: 0

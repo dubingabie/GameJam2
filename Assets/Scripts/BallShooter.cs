@@ -7,9 +7,12 @@ public class BallShooter : MonoBehaviour
     [SerializeField] private float maxShootInterval = 20f;
     [SerializeField] private float fallSpeed = 1.5f;
     [SerializeField] private Transform shootPoint;
-
+    [SerializeField] private AudioClip shootSound;
+    [SerializeField][Range(0f,3f)] private float shootVolume = 1f;
+    private AudioSource audioSource;
     private void Start()
     {
+        audioSource = gameObject.AddComponent<AudioSource>();
         StartCoroutine(ShootBallRoutine());
     }
 
@@ -23,6 +26,7 @@ public class BallShooter : MonoBehaviour
                 shootPoint != null ? shootPoint.position : transform.position, 
                 Quaternion.identity);
             //invoke ball move dwon routine in its game object class
+            audioSource.PlayOneShot(shootSound,shootVolume);
             ball.GetComponent<BulletMovementManager>().StartMoving();
             
         }
