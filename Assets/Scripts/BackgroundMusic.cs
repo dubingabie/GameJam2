@@ -5,21 +5,22 @@ using UnityEngine;
 public class BackgroundMusic : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] private AudioClip musicClip;
-    [SerializeField][Range(0.0f, 3.0f)] private float volume = 1.0f;
+    [SerializeField] private AudioClip backgroundMusicClip;
+    [SerializeField][Range(0.0f, 3.0f)] private float backgroundMusicVolume = 1.0f;
     [SerializeField] private float loopStartTime = 2f; // Time in seconds where loop should start
     [SerializeField] private float loopEndTime = 29f;   
-        
     private AudioSource audioSource;
+    
+    [SerializeField] private AudioClip youWonMusicClip;
+    [SerializeField][Range(0.0f, 3.0f)] private float youWonMusicVolume = 1.0f;
+    [SerializeField] private AudioClip gameOverMusicClip;
+    [SerializeField][Range(0.0f, 3.0f)] private float gameOverMusicVolume = 1.0f;
     void Start()
     {
         audioSource = gameObject.AddComponent<AudioSource>();
-        audioSource.clip = musicClip;
-        audioSource.loop = true;
-        audioSource.volume = volume;
-        audioSource.Play();
+        startMusic();
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -29,5 +30,30 @@ public class BackgroundMusic : MonoBehaviour
             // Jump back to loop start point
             audioSource.time = loopStartTime;
         }
+    }
+
+    public void stopMusic()
+    {
+        audioSource.Stop();
+    }
+
+    public void startGameOverMusic()
+    {
+     audioSource.volume = gameOverMusicVolume;
+     audioSource.clip = gameOverMusicClip;
+     audioSource.Play();
+    }
+    public void startYouWonMusic()
+    {
+        audioSource.volume = youWonMusicVolume;
+        audioSource.clip = youWonMusicClip;
+        audioSource.Play();
+    }
+    public void startMusic()
+    {   
+        audioSource.clip = backgroundMusicClip;
+        audioSource.loop = true;
+        audioSource.volume = backgroundMusicVolume;
+        audioSource.Play();
     }
 }

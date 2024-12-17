@@ -7,7 +7,7 @@ public class YouWonManager : MonoBehaviour
 {
     public GameObject YouWonOverlay;
     private bool isYouWon = false;
-
+    [SerializeField] private GameObject backgroundMusic;
     void Start()
     {
         YouWonOverlay.SetActive(false);
@@ -26,7 +26,7 @@ public class YouWonManager : MonoBehaviour
 
     public void ShowYouWon()
     {
-        
+        backgroundMusic.GetComponent<BackgroundMusic>().stopMusic();
         isYouWon = true;
         YouWonOverlay.SetActive(true);
         Time.timeScale = 0f;

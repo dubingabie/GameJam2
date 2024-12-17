@@ -142,7 +142,7 @@ MonoBehaviour:
   - {fileID: 2038767748, guid: 7f7c08b3b0a6d4dafa8e73073c15cdc5, type: 3}
   frameRate: 0.1
   damageSound: {fileID: 8300000, guid: b9eff218e132a4e76be78840eca96fb2, type: 3}
-  damageVolume: 0.75
+  damageVolume: 0.5
   gameOverManager: {fileID: 0}
 --- !u!114 &8960678333807810967
 MonoBehaviour:

@@ -7,7 +7,7 @@ public class GameOverManager : MonoBehaviour
 {
     public GameObject gameOverOverlay;
     private bool isGameOver = false;
-
+    [SerializeField] private GameObject backgroundMusicPlayer;
     void Start()
     {
         gameOverOverlay.SetActive(false);
@@ -26,7 +26,10 @@ public class GameOverManager : MonoBehaviour
 
     public void ShowGameOver()
     {
-        
+        BackgroundMusic backgroundMusic =
+            backgroundMusicPlayer.GetComponent<BackgroundMusic>();
+        backgroundMusic.stopMusic();
+        backgroundMusic.startGameOverMusic();
         isGameOver = true;
         gameOverOverlay.SetActive(true);
         Time.timeScale = 0f;
