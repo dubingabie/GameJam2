@@ -939,8 +939,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 69721065}
     - target: {fileID: 8960678333807810967, guid: 359024c6847a38744b773528fff2b5d7, type: 3}
+      propertyPath: lineRenderer
+      value: 
+      objectReference: {fileID: 973623694}
+    - target: {fileID: 8960678333807810967, guid: 359024c6847a38744b773528fff2b5d7, type: 3}
       propertyPath: powerMultiplier
       value: 12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8960678333807810967, guid: 359024c6847a38744b773528fff2b5d7, type: 3}
+      propertyPath: chargeSoundVolume
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2673,7 +2681,6 @@ SceneRoots:
   - {fileID: 2104978478}
   - {fileID: 1415748146}
   - {fileID: 1411360958}
-  - {fileID: 572653780}
   - {fileID: 1452967042}
   - {fileID: 294382266}
   - {fileID: 1198090283}
@@ -2682,4 +2689,5 @@ SceneRoots:
   - {fileID: 1898870005}
   - {fileID: 5054797}
   - {fileID: 330114464}
+  - {fileID: 572653780}
   - {fileID: 37583453}
