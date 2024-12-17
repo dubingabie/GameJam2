@@ -1,22 +1,29 @@
 using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class ShootingAnimation : MonoBehaviour
 {
+    [Header("Animation")]
     [SerializeField] Sprite[] shootingSprites; // Automatically populate from sliced sprites
     [SerializeField] float frameRate = 0.1f;   // Time between each frame
     private SpriteRenderer spriteRenderer;
     private bool isAnimating = false;
-
+    [Header("Audio")]
+    [SerializeField] private AudioClip shootSound;
+    [SerializeField][Range(0.0f, 3.0f)] private float volume = 1.0f;
+    private AudioSource audioSource;
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-
+        audioSource = gameObject.AddComponent<AudioSource>();
         // Set the initial sprite to Shoot0
         if (shootingSprites.Length > 0)
         {
             spriteRenderer.sprite = shootingSprites[0];
         }
+        // Get the AudioSource component if not assigned
+  
     }
 
     void Update()
@@ -45,7 +52,7 @@ public class ShootingAnimation : MonoBehaviour
 
         // Wait until mouse is released
         yield return new WaitUntil(() => !Input.GetMouseButton(0));
-
+        audioSource.PlayOneShot(shootSound,volume);
         // Continue animation from third frame onwards
         for (int i = 2; i < shootingSprites.Length; i++)
         {

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8082241655487491773}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,6 +129,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 1
+  walkingSprites: []
+  animationSpeed: 0.2
+  shootingSprites: []
+  shootingFrameRate: 0.1
   playerMaxHealth: 3
   healthImage: {fileID: 0}
   damageSprites:
@@ -150,6 +154,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   golfBall: {fileID: 2793061678426232308, guid: 3edeb3caa2f15004c98842760865b484, type: 3}
+  defaultPoolCapacity: 10
+  maxPoolSize: 20
+  basePower: 5
   maxPower: 20
   powerMultiplier: 100
   powerBarUI: {fileID: 0}
@@ -207,3 +214,5 @@ MonoBehaviour:
   - {fileID: 1300348014, guid: 7f7c08b3b0a6d4dafa8e73073c15cdc5, type: 3}
   - {fileID: 287546295, guid: a08f7b5b708f89d408e62d607303ecc3, type: 3}
   frameRate: 0.1
+  shootSound: {fileID: 0}
+  volume: 1

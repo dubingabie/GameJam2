@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GolfBall
   - Bullet
+  - Border
   layers:
   - Default
   - TransparentFX

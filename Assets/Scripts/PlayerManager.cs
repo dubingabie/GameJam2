@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class PlayerManager : MonoBehaviour
 {
     // Movement Settings
@@ -68,14 +67,16 @@ public class PlayerManager : MonoBehaviour
     {
         // Reset movement flag
         isMoving = false;
+        // make it so the player doesn't move past the left and right borders of the screen
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             moveX = 1f;
             isMoving = true;
         }
-        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.A) ||
+                 Input.GetKey(KeyCode.LeftArrow))
         {
-            moveX = -1f; 
+            moveX = -1f;
             isMoving = true;
         }
         else
