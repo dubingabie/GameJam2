@@ -12,7 +12,7 @@ public class GolfShootingController : MonoBehaviour
     [SerializeField] private GameObject golfBall;  // Reference to your golf ball prefab
     [SerializeField] private int defaultPoolCapacity = 10;
     [SerializeField] private int maxPoolSize = 20;
-    
+  
     private IObjectPool<GameObject> ballPool;
     //create an object pool for all of the golf balls
     [SerializeField] private float basePower = 5f;
@@ -27,7 +27,11 @@ public class GolfShootingController : MonoBehaviour
     [Header("Power Bar Ui")]
     [SerializeField] private GameObject powerBarUI;
     [SerializeField] private Image power;
-
+    [Header("Sound")]
+    [SerializeField] private AudioClip chargeSound;
+    [SerializeField][Range(0.0f, 3.0f)] private float chargeSoundVolume = 1.0f;
+    private AudioSource audioSource;
+    
     void Awake()
     {
         //initialize the object pool
@@ -64,6 +68,7 @@ public class GolfShootingController : MonoBehaviour
 
     void Start()
     {
+        audioSource = gameObject.AddComponent<AudioSource>();
         currentPower = 0f;
         powerBarUI.SetActive(false);   
         power.fillAmount = 0f;
@@ -84,19 +89,24 @@ public class GolfShootingController : MonoBehaviour
             isCharging = true;
             powerBarUI.SetActive(true);
             power.fillAmount = 0f;
+            audioSource.PlayOneShot(chargeSound,chargeSoundVolume);
             //Debug.Log("Starting charge - Power reset to 0"); // Debug log
-
         } 
         if(isCharging)
         {
             currentPower += Time.deltaTime * powerMultiplier;
             currentPower = Mathf.Min(currentPower, maxPower);
             power.fillAmount = Mathf.Clamp(basePower + currentPower, 0, maxPower) / maxPower;
+            if (currentPower >= maxPower)
+            {
+                audioSource.Stop();
+            }
             //Debug.Log($"Charging - Current Power: {currentPower}, Power Multiplier: {powerMultiplier}"); // Debug power build-up
 
         }
         if (isCharging && Input.GetMouseButtonUp(0))
         {
+            audioSource.Stop();
             isCharging = false;
             currentPower = Mathf.Max(basePower, currentPower);
             currentPower = Mathf.Min(currentPower, maxPower);

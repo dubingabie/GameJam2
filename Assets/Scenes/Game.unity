@@ -366,10 +366,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundMusicClip: {fileID: 8300000, guid: 34f0889864d2a91409ac7c8e6284d630, type: 3}
-  backgroundMusicVolume: 0.95
+  backgroundMusicVolume: 1.2
   loopStartTime: 2
   loopEndTime: 29
-  youWonMusicClip: {fileID: 0}
+  youWonMusicClip: {fileID: 8300000, guid: 3c71613e11f76ff45938092137b486e0, type: 3}
   youWonMusicVolume: 1
   gameOverMusicClip: {fileID: 8300000, guid: fe7606b872e6d60418b16e228abf4572, type: 3}
   gameOverMusicVolume: 1
@@ -2232,7 +2232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   YouWonOverlay: {fileID: 2104978474}
-  backgroundMusic: {fileID: 37583451}
+  backgroundMusicPlayer: {fileID: 37583451}
 --- !u!4 &1898870005
 Transform:
   m_ObjectHideFlags: 0

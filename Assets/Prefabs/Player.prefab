@@ -164,6 +164,8 @@ MonoBehaviour:
   powerMultiplier: 100
   powerBarUI: {fileID: 0}
   power: {fileID: 0}
+  chargeSound: {fileID: 8300000, guid: 4a3e7a73420a484439334413bd8c661c, type: 3}
+  chargeSoundVolume: 0.5
 --- !u!70 &988702614758196688
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -218,4 +220,4 @@ MonoBehaviour:
   - {fileID: 287546295, guid: a08f7b5b708f89d408e62d607303ecc3, type: 3}
   frameRate: 0.1
   shootSound: {fileID: 8300000, guid: 0e01346aa9e668342a075e4ae44402a7, type: 3}
-  volume: 0.9
+  shootSoundVolume: 1

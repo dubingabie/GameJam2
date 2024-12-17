@@ -11,7 +11,7 @@ public class ShootingAnimation : MonoBehaviour
     private bool isAnimating = false;
     [Header("Audio")]
     [SerializeField] private AudioClip shootSound;
-    [SerializeField][Range(0.0f, 3.0f)] private float volume = 1.0f;
+    [SerializeField][Range(0.0f, 3.0f)] private float shootSoundVolume = 1.0f;
     private AudioSource audioSource;
     void Start()
     {
@@ -43,16 +43,15 @@ public class ShootingAnimation : MonoBehaviour
 
         // Wait until mouse is pressed
         yield return new WaitUntil(() => Input.GetMouseButton(0));
-
         // Stay on second frame while mouse is held
         if (shootingSprites.Length > 1)
         {
             spriteRenderer.sprite = shootingSprites[1];
         }
-
+        
         // Wait until mouse is released
         yield return new WaitUntil(() => !Input.GetMouseButton(0));
-        audioSource.PlayOneShot(shootSound,volume);
+        audioSource.PlayOneShot(shootSound,shootSoundVolume);
         // Continue animation from third frame onwards
         for (int i = 2; i < shootingSprites.Length; i++)
         {
