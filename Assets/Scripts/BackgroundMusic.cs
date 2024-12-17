@@ -10,7 +10,7 @@ public class BackgroundMusic : MonoBehaviour
     [SerializeField] private float loopStartTime = 2f; // Time in seconds where loop should start
     [SerializeField] private float loopEndTime = 29f;   
     private AudioSource audioSource;
-    
+    private bool gameOver = false;
     [SerializeField] private AudioClip youWonMusicClip;
     [SerializeField][Range(0.0f, 3.0f)] private float youWonMusicVolume = 1.0f;
     [SerializeField] private AudioClip gameOverMusicClip;
@@ -39,6 +39,8 @@ public class BackgroundMusic : MonoBehaviour
 
     public void startGameOverMusic()
     {
+     loopStartTime = 0f; // Time in seconds where loop should start
+     loopEndTime = 69f;
      audioSource.volume = gameOverMusicVolume;
      audioSource.clip = gameOverMusicClip;
      audioSource.Play();
@@ -54,6 +56,8 @@ public class BackgroundMusic : MonoBehaviour
         audioSource.clip = backgroundMusicClip;
         audioSource.loop = true;
         audioSource.volume = backgroundMusicVolume;
+        audioSource.loop = false;
         audioSource.Play();
+        
     }
 }

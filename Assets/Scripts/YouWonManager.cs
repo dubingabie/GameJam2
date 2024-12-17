@@ -7,7 +7,7 @@ public class YouWonManager : MonoBehaviour
 {
     public GameObject YouWonOverlay;
     private bool isYouWon = false;
-    [SerializeField] private GameObject backgroundMusic;
+    [SerializeField] private GameObject backgroundMusicPlayer;
     void Start()
     {
         YouWonOverlay.SetActive(false);
@@ -26,7 +26,10 @@ public class YouWonManager : MonoBehaviour
 
     public void ShowYouWon()
     {
-        backgroundMusic.GetComponent<BackgroundMusic>().stopMusic();
+        BackgroundMusic backgroundMusic =
+            backgroundMusicPlayer.GetComponent<BackgroundMusic>();
+        backgroundMusic.stopMusic();
+        backgroundMusic.startYouWonMusic(); // play you won music instead of game over music in the
         isYouWon = true;
         YouWonOverlay.SetActive(true);
         Time.timeScale = 0f;
