@@ -20,15 +20,23 @@ public class BallShooter : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(minShootInterval, maxShootInterval));
+            if (!GameState.isGamePaused)
+            {
+                yield return new WaitForSeconds(Random.Range(minShootInterval,
+                    maxShootInterval));
 
-            GameObject ball = Instantiate(ballPrefab, 
-                shootPoint != null ? shootPoint.position : transform.position, 
-                Quaternion.identity);
-            //invoke ball move dwon routine in its game object class
-            audioSource.PlayOneShot(shootSound,shootVolume);
-            ball.GetComponent<BulletMovementManager>().StartMoving();
-            
+                GameObject ball = Instantiate(ballPrefab,
+                    shootPoint != null
+                        ? shootPoint.position
+                        : transform.position,
+                    Quaternion.identity);
+                //invoke ball move dwon routine in its game object class
+                audioSource.PlayOneShot(shootSound, shootVolume);
+                ball.GetComponent<BulletMovementManager>().StartMoving();
+            }
+            else{
+                yield return null;
+            }
         }
     }
 

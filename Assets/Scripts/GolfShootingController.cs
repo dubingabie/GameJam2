@@ -104,7 +104,10 @@ public class GolfShootingController : MonoBehaviour
     void Update()
     {
         //if (powerBar == null) return;  // Safety check
-
+        if (GameState.isGamePaused)
+        {
+            return;
+        }
         // Get mouse position for aiming
         Vector3 temp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition = new Vector2(temp.x, temp.y);

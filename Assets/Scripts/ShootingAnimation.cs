@@ -28,6 +28,10 @@ public class ShootingAnimation : MonoBehaviour
 
     void Update()
     {
+        if (GameState.isGamePaused)
+        {
+            return;
+        }
         // Detect mouse press and release
         if (Input.GetMouseButtonDown(0) && !isAnimating)
         {

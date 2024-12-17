@@ -10,10 +10,12 @@ public class GameManager : MonoBehaviour
     // public int shipsPerRow = 5;
     [SerializeField] GameOverManager gameOverManager;  // Reference to your GameOverManager
     [SerializeField] YouWonManager youWonManager;  // Reference to your YouWonManager
+    [SerializeField] InstructionsManager instrucionsManager;  // Reference to your InsrucionsManager
     private int remainingShips;  // Track remaining ships
 
     void Start()
     {
+        instrucionsManager.ShowInstructions();
         SpawnShipFormation();
         //sum members of type count into remaining ship using delta
         remainingShips = 0;
@@ -21,7 +23,6 @@ public class GameManager : MonoBehaviour
         {
             remainingShips += typeCount[i];
         }
-
     }
 
     void SpawnShipFormation()

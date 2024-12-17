@@ -71,6 +71,10 @@
 
         void Update()
         {
+            if (GameState.isGamePaused)
+            {
+                return;
+            }
             // Reset movement flag
             isMoving = false;
             // make it so the player doesn't move past the left and right borders of the screen
