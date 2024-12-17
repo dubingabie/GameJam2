@@ -11,6 +11,7 @@
         [SerializeField] private Sprite[] walkingSprites;
         [SerializeField] private float animationSpeed = 0.2f;
 
+        [SerializeField] private float offsetFromCamera = 1.2f;//make this half of screen width
         // Shooting Animation Settings
         [Header("Shooting Animation")]
         [SerializeField] private Sprite[] shootingSprites;
@@ -96,9 +97,12 @@
                     playerRigidbody.velocity.y);
                 playerRigidbody.velocity = movement;
                 // Clamp position within screen bounds
-                Vector3 pos = transform.position;
-                pos.x = Mathf.Clamp(pos.x, (-1.2f), (1.2f));
-                transform.position = pos;
+                Vector3 playerPosition = transform.position;
+                Vector3 cameraPosition = mainCamera.transform.position;
+                float minX = cameraPosition.x - offsetFromCamera;
+                float maxX = cameraPosition.y + offsetFromCamera;
+                playerPosition.x = Mathf.Clamp(playerPosition.x, minX, maxX);
+                transform.position = playerPosition ;
             }
 
             // Handle character flipping
