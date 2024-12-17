@@ -13,12 +13,15 @@ public class ShipCollisionManager : MonoBehaviour
      private SpriteRenderer spriteRenderer;
      private bool isDamaging = false;
     private bool isDestroying = false;
+    [SerializeField] private AudioClip destructionSound;
+    [SerializeField][Range(0.0f, 3.0f)] private float volume = 1.0f;
+    private AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         jetEngineRenderer = GetComponentsInChildren<ParticleSystemRenderer>();
-
+        audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -43,6 +46,7 @@ public class ShipCollisionManager : MonoBehaviour
             }
             if (shipHealth <= 0 && !isDestroying)
             {
+                audioSource.PlayOneShot(destructionSound,volume);
                 isDestroying = true;
                 StartCoroutine(PlayDestructionAnimation());
             }
@@ -51,6 +55,7 @@ public class ShipCollisionManager : MonoBehaviour
     }
     private IEnumerator PlayDamageAnimation()
     {
+        
         // Play through each damage frame
         for (int i = 0; i < damageSprites.Length; i++)
         {

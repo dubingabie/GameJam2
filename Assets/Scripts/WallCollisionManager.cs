@@ -10,9 +10,13 @@ public class WallCollisionManager : MonoBehaviour
     [SerializeField] Sprite[] destructionSprites;
     [SerializeField] float frameRate = 0.1f;
     private SpriteRenderer spriteRenderer;
+    [SerializeField] private AudioClip destructionSound;
+    [SerializeField][Range(0.0f, 3.0f)] private float volume = 1.0f;
+    private AudioSource audioSource;
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -39,6 +43,7 @@ public class WallCollisionManager : MonoBehaviour
             }
             //other.gameObject.SetActive(false);
             //Destroy(gameObject);
+            audioSource.PlayOneShot(destructionSound,volume);
             StartCoroutine(PlayDestructionAnimation());
             
         }

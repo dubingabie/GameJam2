@@ -181,6 +181,8 @@ MonoBehaviour:
   - {fileID: 69573743, guid: 316860ef0ce1d3040a4909fec75cfb94, type: 3}
   - {fileID: 1980540339, guid: 316860ef0ce1d3040a4909fec75cfb94, type: 3}
   frameRate: 0.1
+  destructionSound: {fileID: 8300000, guid: 585e46b23c30d0a4bab3045b099c43ea, type: 3}
+  volume: 0.75
 --- !u!1001 &3178883678339992581
 PrefabInstance:
   m_ObjectHideFlags: 0
