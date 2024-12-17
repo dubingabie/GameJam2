@@ -71,12 +71,12 @@ public class PlayerManager : MonoBehaviour
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             moveX = 1f;
-            //isMoving = true;
+            isMoving = true;
         }
         else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            moveX = -1f;
-            //isMoving = true;
+            moveX = -1f; 
+            isMoving = true;
         }
         else
         {
@@ -86,6 +86,7 @@ public class PlayerManager : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             playerRigidbody.velocity = Vector2.zero;
+            isMoving = false;
         }
         else
         {
