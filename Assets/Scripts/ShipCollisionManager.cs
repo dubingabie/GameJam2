@@ -13,8 +13,10 @@ public class ShipCollisionManager : MonoBehaviour
      private SpriteRenderer spriteRenderer;
      private bool isDamaging = false;
     private bool isDestroying = false;
+    [SerializeField] private AudioClip damageSound;
     [SerializeField] private AudioClip destructionSound;
-    [SerializeField][Range(0.0f, 3.0f)] private float volume = 1.0f;
+    [SerializeField][Range(0.0f, 3.0f)] private float damageVolume = 1f;
+    [SerializeField][Range(0.0f, 3.0f)] private float destructionVolume = 0.75f;
     private AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
@@ -42,11 +44,12 @@ public class ShipCollisionManager : MonoBehaviour
             shipHealth--;
             if (shipHealth > 0)
             {
+                audioSource.PlayOneShot(damageSound,damageVolume);
                 StartCoroutine(PlayDamageAnimation());
             }
             if (shipHealth <= 0 && !isDestroying)
             {
-                audioSource.PlayOneShot(destructionSound,volume);
+                audioSource.PlayOneShot(destructionSound,destructionVolume);
                 isDestroying = true;
                 StartCoroutine(PlayDestructionAnimation());
             }

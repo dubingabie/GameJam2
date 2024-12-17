@@ -131,6 +131,7 @@ MonoBehaviour:
   movementSpeed: 1
   walkingSprites: []
   animationSpeed: 0.2
+  offsetFromCamera: 1.2
   shootingSprites: []
   shootingFrameRate: 0.1
   playerMaxHealth: 3
@@ -215,4 +216,4 @@ MonoBehaviour:
   - {fileID: 287546295, guid: a08f7b5b708f89d408e62d607303ecc3, type: 3}
   frameRate: 0.1
   shootSound: {fileID: 0}
-  volume: 1
+  volume: 0.9
