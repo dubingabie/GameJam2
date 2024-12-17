@@ -26,6 +26,8 @@ public class YouWonManager : MonoBehaviour
 
     public void ShowYouWon()
     {
+        GameState.isGamePaused = true;
+        GameState.skipInstructions = true;
         BackgroundMusic backgroundMusic =
             backgroundMusicPlayer.GetComponent<BackgroundMusic>();
         backgroundMusic.stopMusic();

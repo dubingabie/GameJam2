@@ -106,6 +106,11 @@ public class GolfShootingController : MonoBehaviour
         //if (powerBar == null) return;  // Safety check
         if (GameState.isGamePaused)
         {
+            //check if audio source is playing and stop it
+            if (audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
             return;
         }
         // Get mouse position for aiming
@@ -169,49 +174,61 @@ public class GolfShootingController : MonoBehaviour
         
         rb.AddForce(shootDirection * shootingPower, ForceMode2D.Impulse);
     }
-    
+
     void DrawwTrajectory()
     {
-        // int segmentCount = 15;  // Increased for smoother line
-        // float segmentSpacing = 0.05f;
-        // Vector3[] positions = new Vector3[segmentCount];
+        //     int segmentCount = 15;    
+        //     float segmentSpacing = 0.02f;    // Reduced from 0.05f to 0.02f - this makes each segment shorter
+        //     Vector3[] positions = new Vector3[segmentCount];
         //
-        // // Calculate initial velocity based on current power
-        // float totalPower = Mathf.Clamp(basePower + currentPower, 0, maxPower);
-        // Vector2 velocity = shootDirection * totalPower;
+        //     float totalPower = Mathf.Clamp( currentPower, 0, maxPower);
+        //     Vector2 velocity = shootDirection * totalPower;
         //
-        // for(int i = 0; i < segmentCount; i++)
-        // {
-        //     float t = i * segmentSpacing;
-        //     positions[i] = transform.position + new Vector3(
-        //         velocity.x * t,
-        //         velocity.y * t + (Physics2D.gravity.y * 0.5f * t * t),
-        //         0
-        //     );
-        // }
+        //     for(int i = 0; i < segmentCount; i++)
+        //     {
+        //         float t = i * segmentSpacing;
+        //         positions[i] = transform.position + new Vector3(
+        //             velocity.x * t,
+        //             velocity.y * t + (Physics2D.gravity.y * 0.5f * t * t),
+        //             0
+        //         );
+        //     }
         //
-        // lineRenderer.positionCount = segmentCount;
-        // lineRenderer.SetPositions(positions);
-        int segmentCount = 15;    
-        float segmentSpacing = 0.02f;    // Reduced from 0.05f to 0.02f - this makes each segment shorter
+        //     lineRenderer.positionCount = segmentCount;
+        // //     lineRenderer.SetPositions(positions);
+
+        int segmentCount = 15;
+        float segmentSpacing = 0.02f;
         Vector3[] positions = new Vector3[segmentCount];
-    
-        float totalPower = Mathf.Clamp(basePower + currentPower, 0, maxPower);
+
+        // Match the power calculation with ShootBall
+        float totalPower = Mathf.Clamp(currentPower, 0, maxPower);
+
+        // Calculate initial velocity the same way the ball will receive it
         Vector2 velocity = shootDirection * totalPower;
 
-        for(int i = 0; i < segmentCount; i++)
+        // Physics simulation matching the ball's behavior
+        float mass = golfBall.GetComponent<Rigidbody2D>().mass;
+        Vector2
+            initialVelocity =
+                velocity / mass; // Convert force to velocity using F = ma
+
+        for (int i = 0; i < segmentCount; i++)
         {
             float t = i * segmentSpacing;
             positions[i] = transform.position + new Vector3(
-                velocity.x * t,
-                velocity.y * t + (Physics2D.gravity.y * 0.5f * t * t),
+                initialVelocity.x * t,
+                initialVelocity.y * t + (Physics2D.gravity.y * 0.5f * t * t),
                 0
             );
         }
 
         lineRenderer.positionCount = segmentCount;
         lineRenderer.SetPositions(positions);
+
     }
-    
+
+
+
 }
 

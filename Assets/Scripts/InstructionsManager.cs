@@ -22,6 +22,7 @@ public class InstructionsManager : MonoBehaviour
 
     void Update()
     {
+        
         // Check for space key only when game over overlay is shown
         if (Input.GetKeyDown(KeyCode.Space))
         {

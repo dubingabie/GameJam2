@@ -26,6 +26,8 @@ public class GameOverManager : MonoBehaviour
 
     public void ShowGameOver()
     {
+        GameState.isGamePaused = true;
+        GameState.skipInstructions = true;
         BackgroundMusic backgroundMusic =
             backgroundMusicPlayer.GetComponent<BackgroundMusic>();
         backgroundMusic.stopMusic();

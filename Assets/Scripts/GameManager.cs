@@ -15,7 +15,16 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        instrucionsManager.ShowInstructions();
+        if (!GameState.skipInstructions)
+        {
+            instrucionsManager.ShowInstructions();
+        }
+        else
+        {
+            instrucionsManager.Play();
+        }
+        GameState.skipInstructions = true;
+
         SpawnShipFormation();
         //sum members of type count into remaining ship using delta
         remainingShips = 0;
