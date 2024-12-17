@@ -141,6 +141,8 @@ MonoBehaviour:
   - {fileID: -565108061, guid: 151039828d9a5f94eaf27c9b9a6ebdd7, type: 3}
   - {fileID: 2038767748, guid: 7f7c08b3b0a6d4dafa8e73073c15cdc5, type: 3}
   frameRate: 0.1
+  damageSound: {fileID: 8300000, guid: b9eff218e132a4e76be78840eca96fb2, type: 3}
+  damageVolume: 0.75
   gameOverManager: {fileID: 0}
 --- !u!114 &8960678333807810967
 MonoBehaviour:
@@ -215,5 +217,5 @@ MonoBehaviour:
   - {fileID: 1300348014, guid: 7f7c08b3b0a6d4dafa8e73073c15cdc5, type: 3}
   - {fileID: 287546295, guid: a08f7b5b708f89d408e62d607303ecc3, type: 3}
   frameRate: 0.1
-  shootSound: {fileID: 0}
+  shootSound: {fileID: 8300000, guid: 0e01346aa9e668342a075e4ae44402a7, type: 3}
   volume: 0.9

@@ -27,7 +27,11 @@
         [Header("Damage Animation Settings")]
         [SerializeField] Sprite[] damageSprites;
         [SerializeField] float frameRate = 0.1f;
-
+        
+        [Header("Sounds")]
+        [SerializeField] private AudioClip damageSound;
+        [SerializeField][Range(0.0f, 3.0f)] private float damageVolume = 1f;
+        private AudioSource audioSource;
         // Component References
         private Rigidbody2D playerRigidbody;
         private SpriteRenderer spriteRenderer;
@@ -47,6 +51,7 @@
 
         void Start()
         {
+            audioSource = gameObject.AddComponent<AudioSource>();
             playerRigidbody = GetComponent<Rigidbody2D>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             mainCamera = Camera.main;
@@ -226,6 +231,7 @@
                 playerCurrentHealth--;
                 if (!isDamaged)
                 {
+                    audioSource.PlayOneShot(damageSound, damageVolume);  
                     isDamaged = true;
                     StartCoroutine(PlayDamageAnimation());
                 }
