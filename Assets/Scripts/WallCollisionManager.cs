@@ -32,7 +32,11 @@ public class WallCollisionManager : MonoBehaviour
             // set the sprite render of  other  collider to false
             other.gameObject.GetComponent<SpriteRenderer>().enabled = false;
             other.gameObject.GetComponent<Collider2D>().enabled = false;
-            
+            //disable sprite render of the other object's sons
+            foreach (Transform child in other.gameObject.transform)
+            {
+                child.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            }
             //other.gameObject.SetActive(false);
             //Destroy(gameObject);
             StartCoroutine(PlayDestructionAnimation());
