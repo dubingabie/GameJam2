@@ -177,4 +177,4 @@ MonoBehaviour:
   - {fileID: -404795434, guid: d77c764a9d5ec334cba92efbbfe97584, type: 3}
   frameRate: 0.1
   destructionSound: {fileID: 8300000, guid: 38532239892c6854587d69141921bbae, type: 3}
-  volume: 1
+  volume: 0.5
